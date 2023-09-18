@@ -1,0 +1,29 @@
+#divbtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+}
+#botao {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    border: none;
+    cursor: pointer;
+}
+#bemvindo {
+    text-align: center;
+}
+#title {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20vh;
+
+}
+#paragrafo {
+    margin: 0;
+}
+#divcriarprojetos {
+    margin-top: 5rem;
+}
