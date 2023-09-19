@@ -7,6 +7,20 @@
 #projetos {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+}
+#buttons-div-projetos {
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+}
+#buttons-div-projetos button{
+    background-color: black;
+    color:white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 #title-div-projetos {
     display: flex;

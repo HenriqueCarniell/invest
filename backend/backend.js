@@ -30,6 +30,21 @@ app.post("/add", (req,res) => {
     })
 })
 
+app.delete("/delete/:id", (req, res) => {
+    const { id } = req.params;
+    const sqlDelete = "DELETE FROM investapp WHERE id = ?";
+
+    db.query(sqlDelete, id, (err, result) => {
+        if(err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+
+
 app.get("/dados", (req,res) => {
     const sqldata = "SELECT * FROM investapp";
 

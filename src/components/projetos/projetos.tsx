@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
 interface Dados {
+    id: any;
     nome: string;
     price: number;
     opcao: string;
@@ -23,6 +24,24 @@ const Projetos:React.FC = () => {
                 console.log(error);
             });
     }, []);
+
+    let Delete = (id: any) => {
+        axios.delete(`http://localhost:4000/delete/${id}`)
+            .then(response => {
+                setDados(dados.filter(dado => dado.id !== id));
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+    
+    
+    
+    
+
+    let Alterar = () => {
+
+    }
 
     const navigate = useNavigate();
 
@@ -44,6 +63,10 @@ const Projetos:React.FC = () => {
                         </div>
                         <p className="dado-price">Orçamento: {dado.price}</p>
                         <p className="dado-opcao">{dado.opcao}</p>
+                        <div id="buttons-div-projetos">
+                        <button onClick={() => Delete(dado.id)}>Deletar</button>
+                        <button onClick={Alterar}>Alterar</button>
+                        </div>
                     </div>
                 ))}
             </div>

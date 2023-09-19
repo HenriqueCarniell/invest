@@ -9,6 +9,8 @@ const AddProject: React.FC = () => {
     const [saveNumber, setSaveNumber] = useState<number>(0)
     const [saveOption, setSelectOption] = useState<string>('')
 
+    const [serverResponse, setServerResponse] = useState(null);
+
     const handleNameSave = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSaveName(event.target.value);
     }
@@ -37,15 +39,16 @@ const AddProject: React.FC = () => {
                 Nome: newDados.name,
                 Price: newDados.Price,
                 Option: newDados.option,
-            },{
-                timeout: 30000
             });
-            
+    
             console.log(response.data);
+            // Armazenando a resposta do servidor no estado
+            setServerResponse(response.data);
         } catch (error) {
             console.error(error);
         }
     }
+    
 
 
     return (
@@ -71,6 +74,13 @@ const AddProject: React.FC = () => {
                     </select>
                     <button id="btn" onClick={() => {handleSaveDados();Nav()}}>Criar Projeto</button>
 
+                    {/* Adicionando um bloco para exibir a resposta do servidor */}
+                    {serverResponse && (
+                        <div>
+                            <h2>Resposta do Servidor:</h2>
+                            <p>{JSON.stringify(serverResponse)}</p>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
