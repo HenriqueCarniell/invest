@@ -5,11 +5,14 @@ const porta = 4000
 const cors = require('cors');
 
 const db = mysql.createPool({
-    host: "localhost",
-    user:   "root",
-    password: "guga2004",
-    database: "invest",
-})
+    host: "containers-us-west-149.railway.app",
+    user: "root",
+    password: "yWCnh4MIyid7i3Q66PeU",
+    database: "railway",
+    port: 7028
+});
+
+
 
 app.use(cors());
 app.use(express.json())
