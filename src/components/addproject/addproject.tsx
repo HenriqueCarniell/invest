@@ -2,7 +2,7 @@ import Header from "../header/header";
 import './addproject.css'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // Importe useHistory
+import { useNavigate } from 'react-router-dom';
 
 const AddProject: React.FC = () => {
     const [saveName, setSaveName] = useState<string>('')

@@ -34,10 +34,6 @@ const Projetos:React.FC = () => {
                 console.log(error);
             });
     }
-    
-    
-    
-    
 
     let Alterar = () => {
 

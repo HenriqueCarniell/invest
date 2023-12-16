@@ -1,7 +1,6 @@
 import './main.css'
 
 const Main: React.FC = () => {
-
     
     return (
         <div id="main">

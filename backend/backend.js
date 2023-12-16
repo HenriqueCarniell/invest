@@ -3,16 +3,15 @@ const app = express()
 const mysql = require('mysql2')
 const porta = 4000
 const cors = require('cors');
+const { redirect } = require('react-router-dom');
 
 const db = mysql.createPool({
-    host: "containers-us-west-149.railway.app",
+    host: "localhost",
     user: "root",
-    password: "yWCnh4MIyid7i3Q66PeU",
-    database: "railway",
-    port: 7028
+    password: "2006",
+    database: "invest",
+    port: 3306
 });
-
-
 
 app.use(cors());
 app.use(express.json())
@@ -31,7 +30,7 @@ app.post("/add", (req,res) => {
         console.log(result)
     }
     })
-})
+});
 
 app.delete("/delete/:id", (req, res) => {
     const { id } = req.params;
