@@ -59,8 +59,6 @@ app.put("/NewDados/:id", (req, res) => {
       }
     });
   });
-  
-
 
 app.get("/dados", (req,res) => {
     const sqldata = "SELECT * FROM investapp";
