@@ -42,14 +42,11 @@ const AddProject: React.FC = () => {
             });
     
             console.log(response.data);
-            // Armazenando a resposta do servidor no estado
             setServerResponse(response.data);
         } catch (error) {
             console.error(error);
         }
     }
-    
-
 
     return (
         <div>

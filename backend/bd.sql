@@ -9,6 +9,8 @@ CREATE TABLE investapp (
     opcao enum("Infra", "Desenvolvimento", "Design", "Planejamento")
 );
 
+desc investapp;
+
 select * from investapp;
 
 SHOW GLOBAL VARIABLES LIKE 'PORT';

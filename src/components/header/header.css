@@ -2,6 +2,10 @@ body {
     margin: 0;
 }
 
+#list a {
+    text-decoration: none;
+}
+
 #Container{
     display: flex;
     justify-content: space-between;

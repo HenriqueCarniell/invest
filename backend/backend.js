@@ -45,6 +45,21 @@ app.delete("/delete/:id", (req, res) => {
     });
 });
 
+app.put("/NewDados/:id", (req, res) => {
+    const id = req.params.id;
+    const { NewNome, NewNumero, NewSelectType } = req.body;
+  
+    const sqlUpdate = "UPDATE investapp SET nome = ?, price = ?, opcao = ? WHERE id = ?";
+  
+    db.query(sqlUpdate, [NewNome, NewNumero, NewSelectType, id], (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    });
+  });
+  
 
 
 app.get("/dados", (req,res) => {
