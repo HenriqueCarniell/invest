@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import './modal.css'
+import './modal.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useState, useEffect } from 'react';
@@ -26,15 +26,15 @@ function MyModal(props: MyModalProps) {
 
     const [Data, SetData] = useState<MyDataType[]>([])
 
-    let HandleOnSaveModalNome = (event: React.ChangeEvent<HTMLInputElement>) => {
+    let HandleOnSaveModalNome = (event: React.ChangeEvent<HTMLInputElement>):void => {
         SetModalNome(event.target.value);
     }
 
-    let HandleOnSaveModalNumero = (event: React.ChangeEvent<HTMLInputElement>) => {
+    let HandleOnSaveModalNumero = (event: React.ChangeEvent<HTMLInputElement>):void => {
         SetModalNumero(event.target.valueAsNumber);
     }
 
-    let HandleOnSaveSelectType = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    let HandleOnSaveSelectType = (event: React.ChangeEvent<HTMLSelectElement>):void => {
         SetModalSelectType(event?.target.value);
     }
 

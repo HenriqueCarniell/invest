@@ -1,4 +1,4 @@
-import './main.css'
+import './main.css';
 
 const Main: React.FC = () => {
     

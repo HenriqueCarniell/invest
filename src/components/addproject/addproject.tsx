@@ -1,30 +1,30 @@
 import Header from "../header/header";
-import './addproject.css'
+import './addproject.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const AddProject: React.FC = () => {
-    const [saveName, setSaveName] = useState<string>('')
-    const [saveNumber, setSaveNumber] = useState<number>(0)
-    const [saveOption, setSelectOption] = useState<string>('')
+    const [saveName, setSaveName] = useState<string>('');
+    const [saveNumber, setSaveNumber] = useState<number>(0);
+    const [saveOption, setSelectOption] = useState<string>('');
 
     const [serverResponse, setServerResponse] = useState(null);
 
-    const handleNameSave = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleNameSave = (event: React.ChangeEvent<HTMLInputElement>):void => {
         setSaveName(event.target.value);
     }
 
-    const handleNumberSave = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleNumberSave = (event: React.ChangeEvent<HTMLInputElement>):void => {
         setSaveNumber(event.target.valueAsNumber)
     }
-    const HandleSelectSave = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const HandleSelectSave = (event: React.ChangeEvent<HTMLSelectElement>):void => {
         setSelectOption(event.target.value)
     }
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     function Nav() {
-        navigate("/projetos")
+        navigate("/projetos");
     }
 
     const handleSaveDados = async () => {

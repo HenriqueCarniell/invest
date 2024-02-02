@@ -1,5 +1,5 @@
-import './header.css'
-import foto from './img/foto.jpg'
+import './header.css';
+import foto from './img/foto.jpg';
 
 const Header: React.FC = () => {
     return ( 
