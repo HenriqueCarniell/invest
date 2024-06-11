@@ -23,7 +23,7 @@ const AddProject: React.FC = () => {
     }
     const navigate = useNavigate();
 
-    function Nav() {
+    function Nav():void {
         navigate("/projetos");
     }
 
@@ -35,7 +35,7 @@ const AddProject: React.FC = () => {
         };
     
         try {
-            const response = await axios.post("http://localhost:4000/add", {
+            const response = await axios.post("https://api-invest.vercel.app/add", {
                 Nome: newDados.name,
                 Price: newDados.Price,
                 Option: newDados.option,
@@ -71,7 +71,6 @@ const AddProject: React.FC = () => {
                     </select>
                     <button id="btn" onClick={() => {handleSaveDados();Nav()}}>Criar Projeto</button>
 
-                    {/* Adicionando um bloco para exibir a resposta do servidor */}
                     {serverResponse && (
                         <div>
                             <h2>Resposta do Servidor:</h2>
