@@ -39,16 +39,15 @@ function MyModal(props: MyModalProps) {
     }
 
     useEffect(() => {
-        axios.get("http://localhost:4000/dados")
+        axios.get("https://api-invest.vercel.app/dados")
             .then(response => {
                 SetData(response.data)
-                console.log(response.data)
-            })
+            }) 
     }, [])
 
     let HandleSaveBases = async (id: number) => {
         try {
-            await axios.put(`http://localhost:4000/NewDados/${id}`, {
+            await axios.put(`https://api-invest.vercel.app/NewDados/${id}`, {
                 NewNome: ModalNome,
                 NewNumero: ModalNumero,
                 NewSelectType: ModalSelectType,

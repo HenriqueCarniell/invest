@@ -21,18 +21,17 @@ const Projetos: React.FC = () => {
     const [modalShow, setModalShow] = useState<boolean>(false);
 
     useEffect(() => {
-        axios.get('http://localhost:4000/dados')
+
+        axios.get('https://api-invest.vercel.app/dados')
             .then(response => {
                 console.log(response.data);
                 setDados(response.data);
             })
-            .catch(error => {
-                console.log(error);
-            });
     }, []);
+    
 
     let Delete = (id: any) => {
-        axios.delete(`http://localhost:4000/delete/${id}`)
+        axios.delete(`https://api-invest.vercel.app/delete/${id}`)
             .then(response => {
                 setDados(dados.filter(dado => dado.id !== id));
             })
