@@ -21,7 +21,6 @@ const Projetos: React.FC = () => {
     const [modalShow, setModalShow] = useState<boolean>(false);
 
     useEffect(() => {
-
         axios.get('https://api-invest.vercel.app/dados')
             .then(response => {
                 console.log(response.data);
