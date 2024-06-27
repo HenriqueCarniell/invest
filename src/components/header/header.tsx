@@ -2,10 +2,10 @@ import './header.css';
 import foto from './img/foto.jpg';
 
 const Header: React.FC = () => {
-    return ( 
+    return (
         <div id="Container">
             <div id="img">
-             <img src={foto} alt="" />
+                <img src={foto} alt="" />
             </div>
 
             <div id="list">
@@ -17,7 +17,7 @@ const Header: React.FC = () => {
                 </ul>
             </div>
         </div>
-     );
+    );
 }
 
 export default Header;

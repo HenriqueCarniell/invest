@@ -10,22 +10,37 @@ const AddProject: React.FC = () => {
     const [saveOption, setSelectOption] = useState<string>('');
 
     const [serverResponse, setServerResponse] = useState(null);
+    const [projects, setProjects] = useState<any[]>([]);
 
-    const handleNameSave = (event: React.ChangeEvent<HTMLInputElement>):void => {
+    const handleNameSave = (event: React.ChangeEvent<HTMLInputElement>): void => {
         setSaveName(event.target.value);
     }
 
-    const handleNumberSave = (event: React.ChangeEvent<HTMLInputElement>):void => {
+    const handleNumberSave = (event: React.ChangeEvent<HTMLInputElement>): void => {
         setSaveNumber(event.target.valueAsNumber)
     }
-    const HandleSelectSave = (event: React.ChangeEvent<HTMLSelectElement>):void => {
+
+    const HandleSelectSave = (event: React.ChangeEvent<HTMLSelectElement>): void => {
         setSelectOption(event.target.value)
     }
+
     const navigate = useNavigate();
 
-    function Nav():void {
+    function Nav(): void {
         navigate("/projetos");
     }
+
+    useEffect(() => {
+        const fetchProjects = async () => {
+            try {
+                const response = await axios.get("https://api-invest-m6y8.onrender.com/dados");
+                setProjects(response.data);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        fetchProjects();
+    }, []);
 
     const handleSaveDados = async () => {
         const newDados = {
@@ -33,16 +48,18 @@ const AddProject: React.FC = () => {
             Price: saveNumber,
             option: saveOption
         };
-    
+
         try {
-            const response = await axios.post("https://api-invest.vercel.app/add", {
+            const response = await axios.post("https://api-invest-m6y8.onrender.com/add", {
                 Nome: newDados.name,
                 Price: newDados.Price,
                 Option: newDados.option,
             });
-    
+
             console.log(response.data);
             setServerResponse(response.data);
+
+            setProjects([...projects, response.data]);
         } catch (error) {
             console.error(error);
         }
@@ -69,7 +86,7 @@ const AddProject: React.FC = () => {
                         <option value="Design">Design</option>
                         <option value="Planejamento">Planejamento</option>
                     </select>
-                    <button id="btn" onClick={() => {handleSaveDados();Nav()}}>Criar Projeto</button>
+                    <button id="btn" onClick={() => { handleSaveDados(); Nav() }}>Criar Projeto</button>
 
                     {serverResponse && (
                         <div>

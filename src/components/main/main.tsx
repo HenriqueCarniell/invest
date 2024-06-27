@@ -1,7 +1,7 @@
 import './main.css';
 
 const Main: React.FC = () => {
-    
+
     return (
         <div id="main">
             <div id="title">
@@ -9,7 +9,7 @@ const Main: React.FC = () => {
                 <p id="paragrafo">Comece a gerenciar os seus projetos agora mesmo!</p>
             </div>
             <div id="divbtn">
-            <a href="/criarprojeto"><button id="botao">Criar projeto</button></a>
+                <a href="/criarprojeto"><button id="botao">Criar projeto</button></a>
             </div>
         </div>
     );
